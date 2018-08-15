@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E98EA201-E632-4DE8-8283-500A86EF9FDB}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="VisualJCmd.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VisualJCmdStub.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="VisualJCmd">
+        <MSBuild Projects="VisualJCmd.dproj"/>
+    </Target>
+    <Target Name="VisualJCmd:Clean">
+        <MSBuild Projects="VisualJCmd.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VisualJCmd:Make">
+        <MSBuild Projects="VisualJCmd.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VisualJCmdStub">
+        <MSBuild Projects="VisualJCmdStub.dproj"/>
+    </Target>
+    <Target Name="VisualJCmdStub:Clean">
+        <MSBuild Projects="VisualJCmdStub.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VisualJCmdStub:Make">
+        <MSBuild Projects="VisualJCmdStub.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="VisualJCmd;VisualJCmdStub"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="VisualJCmd:Clean;VisualJCmdStub:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="VisualJCmd:Make;VisualJCmdStub:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
