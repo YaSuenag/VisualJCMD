@@ -4,7 +4,7 @@ GUI [jcmd](https://docs.oracle.com/javase/jp/10/tools/jcmd.htm) tool for Windows
 
 # How to compile
 
-You can build this source on DDelphi 10.2.
+You can build this source on Delphi 10.2.
 (I use Community Edition)
 
 # How to use
